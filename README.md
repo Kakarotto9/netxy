@@ -2,8 +2,6 @@ netxy
 =======
 Cross platform high performance TCP network library and RPC library using C++ 11.
 
-Windows :Linux : [![Build Status]
-
 ## Features
 * Cross platform (Linux | Windows)
 * High performance and safety use.
@@ -13,7 +11,6 @@ Windows :Linux : [![Build Status]
 * Support HTTP、HTTPS、WebSocket protocol
 * IPv6 support
 * RPC Library
-
 
 
 ## Benchamrk
@@ -71,6 +68,7 @@ Windows :Linux : [![Build Status]
 ## About session safety
   This library use three layer ident one session(also is three way to use this library).
   * First, use raw pointer named DataSocket,combine with EventLoop in used that wrapper DataSocket of first layer
+  * Second, use int64_t number ident one session, used in some callback of TCPService that wrapper DataSocket of first layer
   * Thrid, use smart pointer named TCPSession::PTR combine with WrapServer , you can control session by TCPSession::PTR
 
 I suggest you use the second or thrid way above, because don't worry memory manager
